@@ -59,6 +59,7 @@
      <Compile Include="Assets\_Script\_Loader.cs" />
      <Compile Include="Assets\_Script\_MovingObject.cs" />
      <Compile Include="Assets\_Script\_Player.cs" />
+     <Compile Include="Assets\_Script\_SoundManager.cs" />
      <Compile Include="Assets\_Script\_Wall.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.UI">

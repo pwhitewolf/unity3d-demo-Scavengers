@@ -67,7 +67,7 @@ public abstract class _MovingObject : MonoBehaviour {
 
         T hitComponent = hit.transform.GetComponent<T>();  //获取碰撞组件
 
-        if (canMove == false && hit.transform != null)
+        if (!canMove && hit.transform != null)
         {
             OnCantMove<T>(hitComponent);
         }

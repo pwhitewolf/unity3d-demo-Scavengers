@@ -5,6 +5,8 @@ using System;
 public class _Enemy : _MovingObject {
 
     public int playerDamage;
+    public AudioClip enemyAttack1;
+    public AudioClip enemyAttack2;
 
     private Animator animator;
     private Transform target;      //玩家位置
@@ -44,14 +46,19 @@ public class _Enemy : _MovingObject {
             xDir = target.position.x > transform.position.x ? 1 : -1;
 
         AttempMove<_Player>(xDir, yDir);
+        
     }
 
     protected override void OnCantMove<T>(T component)
     {
-        _Player hitplayer = component as _Player;
+        if (component is _Player)
+        {
+            _Player hitplayer = component as _Player;
 
-        hitplayer.LoseFood(playerDamage);
-        animator.SetTrigger("enemyAttack");
+            hitplayer.LoseFood(playerDamage);
+            animator.SetTrigger("enemyAttack");
+            _SoundManager.instance.RandomizeSfx(enemyAttack1, enemyAttack2);
+        }
     }
 
     
